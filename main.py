@@ -1,6 +1,3 @@
-# Copyright (C) @TheSmartBisnu
-# Channel: https://t.me/itsSmartDev
-
 import os
 import shutil
 import traceback
@@ -183,8 +180,18 @@ async def logs(client: Client, message: Message):
         await message.reply("**Not exists**")
 
 
-if __name__ == "__main__":
+import asyncio
+from pyrogram import idle
+
+async def main():
     LOGGER(__name__).info("Bot is starting...")
-    user.start()
-    bot.run()
+    await user.start()
+    await bot.start()
     LOGGER(__name__).info("Bot is running!")
+    await idle()  # Keeps the bot running until manually stopped
+    await bot.stop()
+    await user.stop()
+    LOGGER(__name__).info("Bot stopped.")
+
+if __name__ == "__main__":
+    asyncio.run(main())
