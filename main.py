@@ -1,6 +1,4 @@
-# Copyright (C) @TheSmartBisnu
-# Channel: https://t.me/itsSmartDev
-
+import asyncio
 import os
 import shutil
 import traceback
@@ -184,24 +182,13 @@ async def logs(client: Client, message: Message):
 
 
 import asyncio
-from pyrogram import idle
 
 async def main():
     LOGGER(__name__).info("Bot is starting...")
     await user.start()
     await bot.start()
     LOGGER(__name__).info("Bot is running!")
-    await idle()  # Keeps the bot running until manually stopped
-    await stop_bot()
-
-
-async def stop_bot():
-    try:
-        await bot.stop()
-        await user.stop()
-        LOGGER(__name__).info("Bot stopped.")
-    except Exception as e:
-        LOGGER(__name__).error(f"Error stopping bot: {e}")
+    await bot.idle()
 
 
 if __name__ == "__main__":
