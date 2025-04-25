@@ -181,14 +181,5 @@ async def logs(client: Client, message: Message):
         await message.reply("**Not exists**")
 
 
-import asyncio
-
-async def main():
-    LOGGER(__name__).info("Bot is starting...")
-    await user.start()
-    await bot.start()
-    LOGGER(__name__).info("Bot is running!")
-    await user.idle()  # Use `user.idle()` here
-
-if __name__ == "__main__":
-    asyncio.run(main())
+# Start the bot using bot.run() instead of asyncio.run()
+bot.run()  # Use this to keep the bot running
