@@ -1,3 +1,6 @@
+# Copyright (C) @TheSmartBisnu
+# Channel: https://t.me/itsSmartDev
+
 import os
 import shutil
 import traceback
@@ -189,9 +192,17 @@ async def main():
     await bot.start()
     LOGGER(__name__).info("Bot is running!")
     await idle()  # Keeps the bot running until manually stopped
-    await bot.stop()
-    await user.stop()
-    LOGGER(__name__).info("Bot stopped.")
+    await stop_bot()
+
+
+async def stop_bot():
+    try:
+        await bot.stop()
+        await user.stop()
+        LOGGER(__name__).info("Bot stopped.")
+    except Exception as e:
+        LOGGER(__name__).error(f"Error stopping bot: {e}")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
