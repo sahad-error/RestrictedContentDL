@@ -188,8 +188,7 @@ async def main():
     await user.start()
     await bot.start()
     LOGGER(__name__).info("Bot is running!")
-    await bot.idle()
-
+    await user.idle()  # Use `user.idle()` here
 
 if __name__ == "__main__":
     asyncio.run(main())
