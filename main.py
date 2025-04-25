@@ -1,4 +1,6 @@
-import asyncio
+# Copyright (C) @TheSmartBisnu
+# Channel: https://t.me/itsSmartDev
+
 import os
 import shutil
 import traceback
@@ -181,5 +183,8 @@ async def logs(client: Client, message: Message):
         await message.reply("**Not exists**")
 
 
-# Start the bot using bot.run() instead of asyncio.run()
-bot.run()  # Use this to keep the bot running
+if __name__ == "__main__":
+    LOGGER(__name__).info("Bot is starting...")
+    user.start()
+    bot.run()
+    LOGGER(__name__).info("Bot is running!")
